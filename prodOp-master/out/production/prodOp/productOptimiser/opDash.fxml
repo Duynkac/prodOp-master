@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="productOptimiser.dashController">
+    <minWidth>-Infinity</minWidth>
+    <minHeight>-Infinity</minHeight>
+    <MenuBar layoutY="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" text="Close" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" text="Delete" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About" />
+        </Menu>
+    </MenuBar>
+    <SplitPane dividerPositions="0.169449081803005" layoutX="495.0" layoutY="24.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="250.0">
+            <Label layoutX="99.0" layoutY="14.0" prefHeight="20.0" prefWidth="70.0" text="Products" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="15.0">
+                <font>
+                    <Font name="Segoe UI Bold" size="14.0" />
+                </font>
+            </Label>
+            <Button fx:id="addBut" layoutX="10.0" layoutY="633.0" mnemonicParsing="false" onAction="#prodAdd" prefHeight="25.0" prefWidth="70.0" text="Add" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" />
+            <Button fx:id="removeBut" disable="true" layoutX="219.0" layoutY="633.0" mnemonicParsing="false" onAction="#prodRemove" prefHeight="25.0" prefWidth="70.0" text="Remove" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="169.39999999999998" />
+            <ListView fx:id="prodList" editable="true" layoutX="10.0" layoutY="45.0" prefHeight="626.0" prefWidth="183.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
+            <Button fx:id="editBut" disable="true" layoutX="90.0" layoutY="634.0" mnemonicParsing="false" onAction="#prodEdit" prefHeight="25.0" prefWidth="70.0" text="Edit" AnchorPane.bottomAnchor="14.799999999999955" />
+        </AnchorPane>
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="871.0">
+            <Button fx:id="processBut" disable="true" layoutX="1053.0" layoutY="39.0" mnemonicParsing="false" onAction="#process" prefHeight="25.0" prefWidth="70.0" text="Process" AnchorPane.bottomAnchor="660.1999999999999" AnchorPane.rightAnchor="19.0" />
+            <Separator layoutX="519.0" orientation="VERTICAL" prefHeight="674.4" prefWidth="6.4" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         <Label layoutX="535.0" layoutY="3.0" prefHeight="36.0" prefWidth="82.0" text="Demand">
+            <font>
+               <Font name="Segoe UI Bold" size="18.0" />
+            </font>
+         </Label>
+         <TextField fx:id="demandText" layoutX="707.0" layoutY="40.0" onAction="#enable" prefHeight="23.0" prefWidth="130.0" promptText="Enter a number">
+            <font>
+               <Font name="Segoe UI" size="12.0" />
+            </font></TextField>
+         <ChoiceBox fx:id="compoChoice" disable="true" layoutX="120.0" layoutY="39.0" prefWidth="150.0" />
+         <Label layoutX="14.0" layoutY="44.0" text="Select component">
+            <font>
+               <Font name="Segoe UI" size="12.0" />
+            </font></Label>
+         <Button fx:id="saveStockBut" disable="true" layoutX="461.0" layoutY="273.0" mnemonicParsing="false" onAction="#saveStock" prefHeight="26.0" prefWidth="41.0" text="Save" />
+         <Label layoutX="13.0" layoutY="9.0" prefHeight="21.0" prefWidth="96.0" text="Stock">
+            <font>
+               <Font name="Segoe UI Bold" size="18.0" />
+            </font>
+         </Label>
+         <TextField fx:id="onHandText" disable="true" layoutX="13.0" layoutY="104.0" prefHeight="23.0" prefWidth="120.0" promptText="Enter a number">
+            <font>
+               <Font name="Segoe UI" size="12.0" />
+            </font></TextField>
+         <TextField fx:id="providerText" disable="true" layoutX="149.0" layoutY="104.0" prefHeight="23.0" prefWidth="120.0" promptText="Enter a number">
+            <font>
+               <Font name="Segoe UI" size="12.0" />
+            </font></TextField>
+         <TextField fx:id="costText" disable="true" layoutX="285.0" layoutY="103.0" prefHeight="23.0" prefWidth="120.0" promptText="Enter a number">
+            <font>
+               <Font name="Segoe UI" size="12.0" />
+            </font></TextField>
+         <Label layoutX="16.0" layoutY="82.0" prefHeight="20.0" prefWidth="104.0" text="On Hand (kg)">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="150.0" layoutY="82.0" prefHeight="20.0" prefWidth="120.0" text="At Providers' (kg)">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="285.0" layoutY="81.0" prefHeight="20.0" prefWidth="96.0" text="Cost (per kg)">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="14.0" layoutY="143.0" prefHeight="20.0" prefWidth="82.0" text="Lot number">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <TextField fx:id="lotText" disable="true" layoutX="13.0" layoutY="165.0" prefHeight="26.0" prefWidth="120.0" promptText="Enter a number">
+            <font>
+               <Font name="Segoe UI" size="12.0" />
+            </font></TextField>
+         <TextField fx:id="amountText" disable="true" layoutX="149.0" layoutY="165.0" prefHeight="26.0" prefWidth="120.0" promptText="Enter a number">
+            <font>
+               <Font name="Segoe UI" size="12.0" />
+            </font></TextField>
+         <Label layoutX="150.0" layoutY="143.0" prefHeight="20.0" prefWidth="90.0" text="Amount (kg)">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <TableView fx:id="stockTable" disable="true" editable="true" layoutX="13.0" layoutY="309.0" prefHeight="400.0" prefWidth="490.0">
+           <columns>
+             <TableColumn fx:id="numStockCol" prefWidth="50.0" text="No." />
+             <TableColumn fx:id="idStockCol" prefWidth="120.0" text="Component ID" />
+               <TableColumn fx:id="groupStockCol" prefWidth="50.0" text="Group" />
+               <TableColumn fx:id="onHandCol" prefWidth="100.0" text="Stock on hand" />
+               <TableColumn fx:id="providerCol" prefWidth="110.0" text="Providers' Stock" />
+               <TableColumn fx:id="costCol" prefWidth="60.0" text="Cost" />
+           </columns>
+         </TableView>
+         <Label layoutX="285.0" layoutY="142.0" prefHeight="20.0" prefWidth="81.0" text="Expiry Date">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <DatePicker fx:id="expiryDate" disable="true" layoutX="285.0" layoutY="164.0" prefHeight="26.0" prefWidth="143.0" promptText="Choose a date" />
+         <ListView fx:id="lotList" disable="true" editable="true" layoutX="13.0" layoutY="208.0" prefHeight="90.0" prefWidth="255.0" />
+         <Button fx:id="addLotBut" disable="true" layoutX="283.0" layoutY="273.0" mnemonicParsing="false" onAction="#addLot" text="Add Lot" />
+         <Label layoutX="538.0" layoutY="97.0" prefHeight="36.0" prefWidth="104.0" text="Constraints">
+            <font>
+               <Font name="Segoe UI Bold" size="18.0" />
+            </font>
+         </Label>
+         <Spinner fx:id="minSpin" disable="true" editable="true" layoutX="540.0" layoutY="208.0" prefHeight="26.0" prefWidth="96.0" />
+         <TableView fx:id="constrTable" disable="true" editable="true" layoutX="538.0" layoutY="309.0" prefHeight="400.0" prefWidth="585.0">
+           <columns>
+             <TableColumn fx:id="numConstrCol" prefWidth="50.0" text="No." />
+             <TableColumn fx:id="idConstrCol" prefWidth="100.0" text="Component ID" />
+               <TableColumn fx:id="groupConstrCol" minWidth="7.0" prefWidth="50.0" text="Group" />
+               <TableColumn fx:id="minPercentCol" prefWidth="50.0" text="Min %" />
+               <TableColumn fx:id="maxPercentCol" prefWidth="50.0" text="Max %" />
+               <TableColumn fx:id="minCostCol" prefWidth="50.0" text="Min $" />
+               <TableColumn fx:id="maxCostCol" prefWidth="50.0" text="Max $" />
+               <TableColumn fx:id="minQtyCol" prefWidth="65.0" text="Min Qty" />
+               <TableColumn fx:id="maxQtyCol" prefWidth="65.0" text="Max Qty" />
+               <TableColumn fx:id="rankCol" prefWidth="50.0" text="Rank" />
+           </columns>
+         </TableView>
+         <Separator layoutX="521.0" layoutY="77.0" prefHeight="0.0" prefWidth="620.0" />
+         <ChoiceBox fx:id="constrChoice" disable="true" layoutX="656.0" layoutY="140.0" prefHeight="26.0" prefWidth="150.0" />
+         <Label layoutX="540.0" layoutY="144.0" text="Select component">
+            <font>
+               <Font name="Segoe UI" size="12.0" />
+            </font></Label>
+         <Label layoutX="540.0" layoutY="187.0" prefHeight="18.0" prefWidth="90.0" text="Minimum(%)">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="540.0" layoutY="251.0" prefHeight="18.0" prefWidth="96.0" text="Maximum(%)">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Spinner fx:id="maxSpin" disable="true" editable="true" layoutX="540.0" layoutY="272.0" prefHeight="26.0" prefWidth="96.0" />
+         <Label layoutX="536.0" layoutY="42.0" prefHeight="18.0" prefWidth="186.0" text="Total demand for this product">
+            <font>
+               <Font name="Segoe UI" size="12.0" />
+            </font></Label>
+         <Button fx:id="saveConstrBut" disable="true" layoutX="1082.0" layoutY="272.0" mnemonicParsing="false" onAction="#saveConstraint" prefHeight="26.0" prefWidth="41.0" text="Save" />
+         <Label layoutX="883.0" layoutY="187.0" prefHeight="18.0" prefWidth="34.0" text="Rank">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Spinner fx:id="rankSpin" disable="true" editable="true" layoutX="883.0" layoutY="208.0" prefHeight="26.0" prefWidth="70.0" />
+         <Label layoutX="656.0" layoutY="187.0" prefHeight="18.0" prefWidth="90.0" text="Minimum($)">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="656.0" layoutY="251.0" prefHeight="18.0" prefWidth="96.0" text="Maximum($)">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="772.0" layoutY="187.0" prefHeight="18.0" prefWidth="104.0" text="Minimum Qty">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="772.0" layoutY="251.0" prefHeight="18.0" prefWidth="96.0" text="Maximum Qty">
+            <font>
+               <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+         </Label>
+         <Spinner fx:id="minCostSpin" disable="true" editable="true" layoutX="653.0" layoutY="208.0" prefHeight="26.0" prefWidth="96.0" />
+         <Spinner fx:id="minQtySpin" disable="true" editable="true" layoutX="769.0" layoutY="208.0" prefHeight="26.0" prefWidth="96.0" />
+         <Spinner fx:id="maxCostSpin" disable="true" editable="true" layoutX="653.0" layoutY="272.0" prefHeight="26.0" prefWidth="96.0" />
+         <Spinner fx:id="maxQtySpin" disable="true" editable="true" layoutX="769.0" layoutY="272.0" prefHeight="26.0" prefWidth="96.0" />
+        </AnchorPane>
+    </SplitPane>
+</AnchorPane>

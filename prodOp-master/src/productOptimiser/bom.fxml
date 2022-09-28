@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="productOptimiser.bomController">
+   <children>
+      <TableView fx:id="bomTable" layoutX="25.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="50.0">
+        <columns>
+          <TableColumn fx:id="bomCompoCol" prefWidth="150.0" text="Component" />
+          <TableColumn fx:id="bomQtyCol" prefWidth="100.0" text="Quantity (kg)" />
+            <TableColumn fx:id="bomProporCol" prefWidth="100.0" text="Proportion (%)" />
+            <TableColumn fx:id="bomCostCol" prefWidth="100.0" text="Cost ($)" />
+        </columns>
+      </TableView>
+      <Button fx:id="exportBut" layoutX="435.0" layoutY="460.0" mnemonicParsing="false" text="Export" AnchorPane.bottomAnchor="14.399999999999977" AnchorPane.rightAnchor="14.600000000000023" />
+      <Label layoutX="200.0" layoutY="22.0" text="Bill of Materals" AnchorPane.topAnchor="22.0">
+         <font>
+            <Font name="Segoe UI Bold" size="14.0" />
+         </font></Label>
+   </children>
+</AnchorPane>
